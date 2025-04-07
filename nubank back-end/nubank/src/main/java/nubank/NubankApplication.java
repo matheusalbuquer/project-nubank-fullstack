@@ -1,4 +1,4 @@
-package com.br.nubank.nubank;
+package nubank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

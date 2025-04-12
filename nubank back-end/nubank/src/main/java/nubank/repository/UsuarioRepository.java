@@ -1,4 +1,6 @@
 package nubank.repository;
 
-public interface UsuarioRepository {
-}
+import nubank.entities.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {}

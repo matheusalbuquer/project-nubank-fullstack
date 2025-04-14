@@ -12,11 +12,11 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private String saldo;
+    private BigDecimal saldo;
 
     public Usuario(){}
 
-    public Usuario(String nome, String email, String senha, String saldo) {
+    public Usuario(String nome, String email, String senha, BigDecimal saldo) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -55,11 +55,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(String saldo) {
+    public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
 }

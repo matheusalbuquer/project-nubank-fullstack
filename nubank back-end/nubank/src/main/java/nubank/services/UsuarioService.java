@@ -14,12 +14,26 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public List<Usuario> retornarTodos(){
+    public List<Usuario> retornarTodos() {
         return usuarioRepository.findAll();
     }
 
-    public UsuarioCadastroDTO cadastrarUsuario(UsuarioCadastroDTO usuario){
-        return usuarioRepository.save(usuario);
+    public UsuarioCadastroDTO cadastrarUsuario(UsuarioCadastroDTO dto) {
+        Usuario usuario = new Usuario();
+        usuario.setNome(dto.getNome());
+        usuario.setEmail(dto.getEmail());
+        usuario.setSenha(dto.getSenha());
+
+        Usuario salvo = usuarioRepository.save(usuario);
+
+        // Converte de volta para DTO
+        UsuarioCadastroDTO respostaDTO = new UsuarioCadastroDTO();
+        respostaDTO.setNome(salvo.getNome());
+        respostaDTO.setEmail(salvo.getEmail());
+        respostaDTO.setSenha(salvo.getSenha());
+
+        return respostaDTO;
     }
 
 }
+

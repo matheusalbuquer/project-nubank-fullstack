@@ -2,7 +2,6 @@ package nubank.entities;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 
 @Entity
 public class Usuario {
@@ -14,11 +13,11 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private BigDecimal saldo;
+    private Double saldo;
 
     public Usuario(){}
 
-    public Usuario(String nome, String email, String senha, BigDecimal saldo) {
+    public Usuario(String nome, String email, String senha, Double saldo) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -57,11 +56,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public BigDecimal getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(BigDecimal saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 }

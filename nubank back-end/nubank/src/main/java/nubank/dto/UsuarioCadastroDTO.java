@@ -1,5 +1,6 @@
 package nubank.dto;
 
+import nubank.entities.Usuario; // <- Importação necessária
 import java.math.BigDecimal;
 
 public class UsuarioCadastroDTO {
@@ -7,17 +8,18 @@ public class UsuarioCadastroDTO {
     private String nome;
     private String email;
     private String senha;
-    private BigDecimal saldo;
+    private Double saldo;
 
-    public UsuarioCadastroDTO() {}
-
-    public UsuarioCadastroDTO(String nome, String email, String senha, BigDecimal saldo) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.saldo = saldo;
+    public Usuario toEntity() {
+        Usuario usuario = new Usuario();
+        usuario.setNome(this.nome);
+        usuario.setEmail(this.email);
+        usuario.setSenha(this.senha);
+        usuario.setSaldo(this.saldo); // <- Adicionando saldo
+        return usuario;
     }
 
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -42,11 +44,11 @@ public class UsuarioCadastroDTO {
         this.senha = senha;
     }
 
-    public BigDecimal getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(BigDecimal saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 }

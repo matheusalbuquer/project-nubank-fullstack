@@ -14,10 +14,12 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+
     @PostMapping
-    public ResponseEntity<Usuario> cadastrarCliente(@RequestBody UsuarioCadastroDTO dto) {
-        Usuario usuario = usuarioService.cadastrarUsuario(dto);
-        return ResponseEntity.ok(usuario);
+    public ResponseEntity<Usuario> cadastrar(@RequestBody UsuarioCadastroDTO dto) {
+        Usuario usuario = dto.toEntity();
+        Usuario salvo = usuarioService.salvar(usuario);
+        return ResponseEntity.ok(salvo);
     }
 
 

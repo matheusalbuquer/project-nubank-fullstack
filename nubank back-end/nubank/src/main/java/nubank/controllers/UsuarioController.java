@@ -1,5 +1,6 @@
 package nubank.controllers;
 
+import jakarta.validation.Valid;
 import nubank.dto.UsuarioCadastroDTO;
 import nubank.entities.Usuario;
 import nubank.services.UsuarioService;
@@ -16,7 +17,7 @@ public class UsuarioController {
 
 
     @PostMapping
-    public ResponseEntity<Usuario> cadastrar(@RequestBody UsuarioCadastroDTO dto) {
+    public ResponseEntity<Usuario> cadastrar(@RequestBody @Valid UsuarioCadastroDTO dto) {
         Usuario usuario = dto.toEntity();
         Usuario salvo = usuarioService.salvar(usuario);
         return ResponseEntity.ok(salvo);
